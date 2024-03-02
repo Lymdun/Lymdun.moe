@@ -28,11 +28,6 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  position: relative;
-  min-height: 100vh;
-}
-
 .home-intro-title {
   display: flex;
   flex-direction: column;
