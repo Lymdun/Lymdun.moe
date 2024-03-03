@@ -79,7 +79,7 @@ export default {
   text-align: justify;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1268px) {
   .project {
     max-width: 100%;
   }

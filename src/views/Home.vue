@@ -67,7 +67,7 @@ export default {
 
 @media (max-height: 868px) {
   .home-intro-image img {
-    max-height: 50%;
+    max-height: 45%;
     max-width: 70%;
   }
 }
