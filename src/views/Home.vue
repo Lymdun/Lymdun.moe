@@ -53,16 +53,23 @@ export default {
 }
 
 .home-intro-image {
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
 }
 
 .home-intro-image img {
-  width: 100%;
+  position: fixed;
+  bottom: 0;
   height: auto;
+  max-width: 100%;
   transform: scale(0.8);
+}
+
+@media (max-height: 868px) {
+  .home-intro-image img {
+    max-height: 50%;
+    max-width: 70%;
+  }
 }
 
 span, a:hover {

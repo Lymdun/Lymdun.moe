@@ -34,7 +34,7 @@ export default {
 .about-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 2em 6em;
+  padding: 2em 6em 4em;
 }
 
 @media (max-width: 768px) {

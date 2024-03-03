@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>Copyright &copy; 2024. Made with <font-awesome-icon icon="heart" style="color: red"/> by Lymdun</p>
-    <p><a href="https://github.com/Lymdun/Lymdun.moe">Source code</a></p>
+    <p><a href="https://github.com/Lymdun/Lymdun.moe" target="_blank">Source code</a></p>
   </footer>
 </template>
 
@@ -30,3 +30,5 @@ a {
   color: #dcdcdc;
 }
 </style>
+<script setup>
+</script>

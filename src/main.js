@@ -10,10 +10,12 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {fas} from "@fortawesome/free-solid-svg-icons";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import About from "@/components/About.vue";
+import Projects from "@/components/Projects.vue";
 
 const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
+    { path: '/projects', component: Projects },
     { path: '/error', component: ErrorComponent },
     { path: '/:catchAll(.*)', redirect: '/error' }
 ];
