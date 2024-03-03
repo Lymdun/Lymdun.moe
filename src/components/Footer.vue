@@ -10,9 +10,8 @@
 footer {
   display: flex;
   justify-content: space-between;
-  padding: 0 8rem;
+  padding: 0 8em;
   list-style: none;
-  font-size: 1rem;
   background-color: #1a1726;
   color: #c7c7c7;
   position: fixed;
@@ -23,7 +22,7 @@ footer {
 
 @media (max-width: 768px) {
   footer {
-    padding: 0 1rem;
+    padding: 0 1em;
   }
 }
 

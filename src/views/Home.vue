@@ -39,13 +39,12 @@ export default {
 
 .about-socials {
   text-align: center;
-  padding-top: 1rem;
-  line-height: 3rem;
-  font-size: 1.6rem;
+  line-height: 2em;
+  font-size: 1.6em;
 }
 
 .about-socials a {
-  margin: 0 0.75rem;
+  margin: 0 0.75em;
 }
 
 .about-socials-items {

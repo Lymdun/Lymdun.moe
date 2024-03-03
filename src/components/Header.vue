@@ -16,17 +16,11 @@ header {
   top: 0;
   display: flex;
   justify-content: end;
-  padding: 1rem;
+  padding: 1em;
   list-style: none;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   background: hsl(254 22% 20% / .95);
   box-shadow: 5px 5px 5px #00000026;
-}
-
-@media (max-width: 768px) {
-  header {
-    font-size: 1.2rem;
-  }
 }
 
 nav ul {
@@ -37,12 +31,12 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin: 0 2rem;
+  margin: 0 2em;
 }
 
 @media (max-width: 768px) {
   nav ul li {
-    margin: 0 1rem;
+    margin: 0 1em;
   }
 }
 
@@ -56,7 +50,7 @@ nav ul li:hover a, nav ul li:hover font-awesome-icon {
 }
 
 .link-text {
-  margin-left: 0.5rem;
+  margin-left: 0.5em;
 }
 
 </style>

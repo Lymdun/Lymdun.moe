@@ -16,7 +16,7 @@
         <li>Playing <span>violin</span> or <span>piano</span></li>
         <li>Building <span>gunpla</span> models</li>
         <li><span>Honkai Star Rail</span> & <span>Arknights</span></li>
-        <br /><br />
+        <br />
         I also published two games in my free-time, <span>Alteros Online</span> (3D MMORPG, still WIP but demo available) and <span>AstolfoBot</span>, a Discord bot with more than <strong>2 millions</strong> users, you can find more on my <router-link to="/projects"><span class="link-text">Projects</span></router-link> pages!
       </div>
       <img src="@/assets/about-image.png" class="about-image" alt=""/>
@@ -34,20 +34,20 @@ export default {
 .about-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 3rem 8rem;
+  padding: 2em 6em;
 }
 
 @media (max-width: 768px) {
   .about-wrapper {
     flex-direction: column;
-    padding: 3rem 1rem;
+    padding: 2em 1em;
   }
 }
 
 .about {
   align-items: center;
-  font-size: 1.5rem;
-  line-height: 2.5rem;
+  font-size: 1.5em;
+  line-height: 1.8em;
 }
 
 span {
@@ -55,9 +55,9 @@ span {
 }
 
 .about .title {
-  font-size: 2.25rem;
+  font-size: 2em;
   text-align: center;
-  padding-bottom: 2rem;
+  padding-bottom: 1.2em;
 }
 
 @keyframes float {
@@ -73,11 +73,11 @@ span {
 }
 
 .about-image {
-  height: 24rem;
+  height: 24em;
   width: auto;
   object-fit: contain;
-  padding-top: 5rem;
-  padding-left: 3rem;
+  padding-top: 5em;
+  padding-left: 3em;
   max-height: 40vh;
   filter: drop-shadow(3px 1px 1px black);
   animation: float 2s ease-in infinite;
