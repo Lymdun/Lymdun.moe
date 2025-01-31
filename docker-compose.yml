@@ -18,7 +18,14 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email contact@lymdun.moe -d lymdun.moe -d www.lymdun.moe --agree-tos
+    entrypoint: /bin/sh -c
+    command: |
+      trap exit TERM
+      while true; do
+        certbot renew --webroot -w /var/www/certbot --force-renewal --email contact@lymdun.moe -d lymdun.moe -d www.lymdun.moe --agree-tos
+        nginx -s reload
+        sleep 12h
+      done
 
   app:
     build:
