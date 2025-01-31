@@ -25,6 +25,14 @@
         </div>
       </div>
       <div class="project">
+        <img src="../assets/fatefulbullet.png" alt="">
+        <span>Fateful Bullet</span> is a fast-paced, third-person arena shooter with a vibrant anime style, developed solo for a planned <span>Steam Early Access release in 2025</span>, made with Unity3D.
+        This action-packed game emphasizes dynamic movement and strategic combat.
+        <div class="project-links">
+          <a href="https://store.steampowered.com/app/3055070/Fateful_Bullet/" target="_blank"><font-awesome-icon :icon="['fab', 'steam']" />Steam</a>
+        </div>
+      </div>
+      <div class="project">
         Although it is not a solo project like the two others, I've done several contributions to the open-source project <span>Mirage</span>.
         It is a high-level networking library made in <span>C#</span> for <span>Unity3D</span>, made for ease of use and high performance.
         <br />
@@ -103,7 +111,7 @@ export default {
 .project-links {
   display: flex;
   justify-content: center;
-  padding: 0.5em 0.5em;
+  padding: 1.5em 0.5em 0;
 }
 
 .project-links a {
@@ -124,7 +132,7 @@ export default {
   background-color: #bf68f1;
 }
 
-.project-links a font-awesome-icon {
+.project-links a svg {
   margin-right: 0.5em;
 }
 
