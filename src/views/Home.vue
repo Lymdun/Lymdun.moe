@@ -10,6 +10,7 @@
       <div class="about-socials-items">
         <a href="mailto:contact@lymdun.moe" target="_blank"><font-awesome-icon icon="envelope" /></a>
         <a href="https://github.com/Lymdun" target="_blank"><font-awesome-icon :icon="['fab', 'github']" /></a>
+        <a href="https://x.com/Lymdun_Sama" target="_blank"><font-awesome-icon :icon="['fab', 'x-twitter']" /></a>
       </div>
     </div>
     <div class="home-intro-image">
