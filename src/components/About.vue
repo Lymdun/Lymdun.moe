@@ -8,7 +8,7 @@
         Heya! My online name is <span>Lymdun</span>. I enjoy developing in C#/Java, but I also have experience in Dart.
         Here's an overview of my skills:
         <br /><br />
-        <li><span>Back-end</span>: C#, Unity3D, Java, Spring Boot, Keycloak, Algolia, Firebase..</li>
+        <li><span>Back-end</span>: C#, Unity3D, Java, Spring Boot, Keycloak, Algolia, Nakama, Firebase..</li>
         <li><span>Ops</span>: Kubernetes, Agones, Docker, Elastic suite..</li>
         Moreover, I also had fun in some AI projects with <span>Keras</span> (mostly CNN stuff). I have some experience in web front-end with <span>Vue.js</span>, but I must say I'm more of a back-end/software guy!
         <br /><br />

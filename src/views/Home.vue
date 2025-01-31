@@ -66,6 +66,12 @@ export default {
 }
 
 @media (max-height: 868px) {
+  .home-intro-title {
+    font-size: 1.6em;
+  }
+  .about-socials {
+    font-size: 1.4em;
+  }
   .home-intro-image img {
     max-height: 45%;
     max-width: 70%;
