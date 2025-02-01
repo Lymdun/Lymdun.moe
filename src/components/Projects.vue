@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="project">
-        Although it is not a solo project like the two others, I've done several contributions to the open-source project <span>Mirage</span>.
+        Although it is not a solo project like the others, I've done several contributions to the open-source project <span>Mirage</span>.
         It is a high-level networking library made in <span>C#</span> for <span>Unity3D</span>, made for ease of use and high performance.
         <br />
         Feel free to contact me if you need help implementing <span>Mirage</span> in your project!
