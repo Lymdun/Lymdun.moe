@@ -48,6 +48,10 @@ nav ul li:hover a, nav ul li:hover font-awesome-icon {
   color: #ccc;
 }
 
+nav ul li a.router-link-exact-active {
+  color: #bf68f1;
+}
+
 .link-text {
   margin-left: 0.5em;
 }
