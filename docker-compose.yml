@@ -8,7 +8,7 @@ services:
     volumes:
       - ./nginx/conf/:/etc/nginx/conf.d/:ro
       - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - ./certbot/conf/live/lymdun.moe/:/etc/nginx/ssl/live/lymdun.moe/:ro
       - ./dist:/usr/share/nginx/html
     depends_on:
       - app
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email contact@lymdun.moe -d lymdun.moe -d www.lymdun.moe --agree-tos
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email contact@lymdun.moe -d lymdun.moe -d www.lymdun.moe -d nakama.lymdun.moe -d api.nakama.lymdun.moe --agree-tos
 
   app:
     build:
