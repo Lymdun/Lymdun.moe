@@ -1,5 +1,6 @@
 services:
   web:
+    image: ${LYMDUN_MOE_IMAGE:-lymdun-moe:latest}
     build:
       context: .
       dockerfile: Dockerfile

@@ -1,4 +1,4 @@
-name: CI
+name: CI and CD
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -41,4 +41,41 @@ jobs:
         with:
           persist-credentials: false
       - run: docker compose config --quiet
+      - run: bash -n scripts/deploy.sh
       - run: docker compose --project-name ci build web
+
+  deploy:
+    name: Deploy production
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: [build, container]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build release image
+        run: docker build --label "org.opencontainers.image.revision=$GITHUB_SHA" --tag "lymdun-moe-cd:$GITHUB_SHA" .
+      - name: Configure deployment SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.LYMDUN_MOE_DEPLOY_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.LYMDUN_MOE_DEPLOY_KNOWN_HOSTS }}
+        run: |
+          umask 077
+          mkdir -p "$RUNNER_TEMP/deploy-ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$RUNNER_TEMP/deploy-ssh/key"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$RUNNER_TEMP/deploy-ssh/known_hosts"
+      - name: Transfer image and deploy web
+        env:
+          DEPLOY_HOST: ${{ secrets.LYMDUN_MOE_DEPLOY_HOST }}
+        run: |
+          set -euo pipefail
+          docker save "lymdun-moe-cd:$GITHUB_SHA" | gzip | ssh \
+            -i "$RUNNER_TEMP/deploy-ssh/key" \
+            -o UserKnownHostsFile="$RUNNER_TEMP/deploy-ssh/known_hosts" \
+            -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 \
+            "root@$DEPLOY_HOST" "deploy $GITHUB_SHA"
+      - name: Remove deployment credentials
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/deploy-ssh"
