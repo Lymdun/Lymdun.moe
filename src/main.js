@@ -7,15 +7,13 @@ import Home from "@/views/Home.vue";
 import ErrorComponent from "@/components/Error.vue"
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {library} from "@fortawesome/fontawesome-svg-core";
-import {faCode, faDownload, faEnvelope, faFileCode, faGlobe, faHeart, faHouse, faUser} from "@fortawesome/free-solid-svg-icons";
-import {faGithub, faSteam, faXTwitter} from "@fortawesome/free-brands-svg-icons";
-import About from "@/components/About.vue";
-import Projects from "@/components/Projects.vue";
+import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {faGithub, faXTwitter} from "@fortawesome/free-brands-svg-icons";
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/projects', component: Projects },
+    { path: '/about', redirect: '/' },
+    { path: '/projects', redirect: '/#projects' },
     { path: '/error', component: ErrorComponent },
     { path: '/:catchAll(.*)', redirect: '/error' }
 ];
@@ -23,8 +21,13 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) return savedPosition;
+        if (to.hash) return { el: to.hash, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' };
+        return { top: 0 };
+    },
 });
 
-library.add(faCode, faDownload, faEnvelope, faFileCode, faGlobe, faHeart, faHouse, faUser, faGithub, faXTwitter, faSteam)
+library.add(faEnvelope, faGithub, faXTwitter)
 
 createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
