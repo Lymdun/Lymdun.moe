@@ -12,8 +12,10 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+Use Node.js 24 LTS (also used by the Docker build), or Node.js 22.12+.
+
 ```sh
-npm install
+npm ci
 ```
 
 ### Compile and Hot-Reload for Development
