@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# cleanup exited docker containers
-EXITED_CONTAINERS=$(docker ps -a | grep Exited | awk '{ print $1 }')
-if [ -z "$EXITED_CONTAINERS" ]
-then
-        echo "No exited containers to clean"
-else
-        docker rm "$EXITED_CONTAINERS"
-fi
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
-docker-compose run --rm certbot renew
-docker-compose exec web nginx -s reload
+# Change to the directory where docker-compose.yml is located.
+cd /var/lymdun.moe/ || exit 1
+
+# Renew certificates using Compose v2 and an absolute path for cron.
+/usr/bin/docker compose run --rm certbot renew --quiet --no-random-sleep-on-renew
+
+# Reload the Nginx web server to apply renewed certificates.
+/usr/bin/docker compose exec -T web nginx -s reload
+
+echo "Certificate renewal script completed successfully at $(date)."
