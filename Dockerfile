@@ -1,4 +1,6 @@
-FROM node:22 as build
+FROM node:24 AS build
 WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
 COPY . .
-RUN npm install && npm run build
+RUN npm run build
