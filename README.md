@@ -1,6 +1,8 @@
 # lymdun.moe
 
-This template should help get you started developing with Vue 3 in Vite.
+A personal links and projects site built with Vue 3 and Vite. The single-page layout features AstolfoBot, Fateful Bullet, and GitHub, X, and email links.
+
+The visual design draws on Arknights: Lone Trail's geometric typography, orbital schematics, cream instrument panels, and rust/mustard/mint registration marks. See [design references and implementation notes](docs/design.md).
 
 ## Recommended IDE Setup
 
